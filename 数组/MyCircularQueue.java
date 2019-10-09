@@ -50,7 +50,7 @@ public class MyCircularQueue {
     boolean deQueue(){
         if (!isEmpty()){
             date.remove(frontIndex);
-            frontIndex++;
+            frontIndex = rearIndex-1;
             return true;
         }
         return false;
