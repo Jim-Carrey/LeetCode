@@ -4,32 +4,55 @@
 */
 
 public class MyDoubleLinkedList {
-        Node node;
+        Node headNode;
         int size;
 
+
+
         MyDoubleLinkedList(){
-            this.node = new Node("i'm head");
-            node.pre = null;
-            node.next = null;
+            this.headNode = new Node("i'm head");
+            headNode.pre = null;
+            headNode.next = null;
             this.size = 1;
         }
+
+        //向链表添加节点
         public void add(Node node){
-            this.node.next = node;
-            node.pre = this.node;
-            node.next = null;
-            this.node = node;
-            size++;
+            if (headNode == getTailNode()){
+                headNode.next = node;
+                node.pre = headNode;
+                size++;
+            }else {
+                getTailNode().next = node;
+                node.pre = getTailNode();
+                node.next = null;
+                size++;
+            }
         }
+
+        //获取头结点
+        public Node getHeadNode(){
+            return headNode;
+        }
+
+        //获取尾结点
+        public Node getTailNode(){
+            Node tailNode = headNode;
+            while (tailNode.next != null){
+                tailNode = tailNode.next;
+            }
+            return tailNode;
+        }
+
+
 
     public static void main(String[] args) {
             MyDoubleLinkedList myDoubleLinkedList = new MyDoubleLinkedList();
             myDoubleLinkedList.add(new Node("csd"));
-            System.out.println(myDoubleLinkedList.node.object);
             myDoubleLinkedList.add(new Node(1));
-            System.out.println(myDoubleLinkedList.node.object);
-            System.out.println(myDoubleLinkedList.node.pre.object);
-            System.out.println(myDoubleLinkedList.node.pre.pre.object);
-
+            System.out.println(myDoubleLinkedList.getHeadNode().object);
+            System.out.println(myDoubleLinkedList.getTailNode().object);
+            System.out.println(myDoubleLinkedList.size);
     }
 
 }
