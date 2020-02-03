@@ -7,7 +7,8 @@
         [ 7, 8, 9,6 ]
         ]
 
-        输出:  [1,2,4,7,5,3,6,8,9]*/
+        输出:  [1,2,4,7,5,3,6,8,9]*//*
+
 class Solution {
 
     boolean isOdd (int num){
@@ -68,3 +69,4 @@ public class FindDiagonalOrder {
 
     }
 }
+*/
